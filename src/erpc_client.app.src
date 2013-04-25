@@ -1,0 +1,18 @@
+{application, erpc_client,
+ [{description, "ERPC Client"},
+  {vsn, "0.0.1"},
+  {modules, 
+   [erpc,
+    erpc_connection,
+    erpc_stream_recv,
+    erpc_client_appsup,
+    erpc_group_appsup]
+  },
+  {registered, [erpc]},
+  {applications, [gproc]},
+  {mod, {erpc_group_appsup, []}},
+  {env, [{groups,[
+		  {default_group,[{backends,[{"localhost",55555}]}]}
+		 ]}]}
+ ]}.
+ 
